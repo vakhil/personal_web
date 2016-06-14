@@ -1,0 +1,28 @@
+@import "variables"
+
+.treema-point2d, .treema-point3d
+  input
+    width: 40px
+
+.treema-search-results
+  width: 500px
+  margin-top: 10px
+  cursor: pointer
+
+.treema-search-result-row:hover
+  background-color: lighten($selectedColor, 20%)
+
+.treema-search-selected
+  background-color: $selectedColor !important
+
+.treema-ace.treema-display .treema-shortened
+  font-family: monospace
+
+.treema-ace .ace_editor
+  width: 100%
+  border: 1px solid gray
+
+.treema-long-string
+  textarea
+    width: 100%
+    height: 300px

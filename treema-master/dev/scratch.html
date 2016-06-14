@@ -1,0 +1,72 @@
+<html>
+<head>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
+  <script src="bower_components/tv4/tv4.js"></script>
+  <script src="bower_components/ace-builds/src/ace.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+  <script type="text/javascript" src="js/treema.js"></script>
+
+  <link rel="stylesheet" href="bower_components/jquery-ui/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" media="screen">
+
+  <link rel="stylesheet" href="css/treema.css">
+  <link rel="stylesheet" href="css/base.css">
+
+</head>
+<body>
+
+<div id="content">
+
+  <h1>Try Things Out Here</h1>
+
+  <div id="scratch"></div>
+
+</div>
+
+<script type="text/javascript">
+
+  var jade = {};
+  $(document).ready(function () {
+
+    var el = $('#scratch');
+    var schema = {
+      "properties": {
+        "lifespan": {
+          "type": "integer",
+          "minimum": 0,
+          "exclusiveMinimum": true,
+        },
+        "frameRate": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "randomSeed": {
+          "type": "string",
+          "enum": [
+            "zero",
+            "playerCode",
+            "playerSession"
+          ],
+        }
+      },
+      "default": {
+        "lifespan": 60,
+        "frameRate": 30,
+        "randomSeed": "zero"
+      },
+      "type": "object"
+    };
+    var data = { test: [[],[],[]] };
+    var options = { schema:schema, data:data };
+    var treema = el.treema(options);
+    treema.build();
+    window.treema = treema;
+    window.schema = schema;
+  });
+
+</script>
+
+</body>
+</html>

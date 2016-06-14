@@ -1,0 +1,10 @@
+.DS_Store
+#/build
+/temp
+/node_modules
+/packages
+.idea/
+atlassian-ide-plugin.xml
+*.iml
+npm-debug.log
+.coralui

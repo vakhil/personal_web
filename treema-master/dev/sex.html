@@ -1,0 +1,76 @@
+<html>
+<head>
+  <script src="js/vendor/jquery-1.8.1.js"></script>
+  <script src="js/vendor/jquery-ui-1.10.3.custom.js"></script>
+  <script src="js/vendor/tv4.js"></script>
+  <script src="js/vendor/ace.js"></script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="js/treema.js"></script>
+  <script src="js/base.js"></script>
+  
+  <link rel="stylesheet" href="css/vendor/jquery-ui-1.10.3.custom.css">
+  <link rel="stylesheet" href="css/vendor/bootstrap.min.css" media="screen">
+  <link rel="stylesheet" href="css/treema.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/demo.css">
+
+</head>
+<body>
+
+<div id="content">
+  <a href="https://github.com/sderickson/treema">
+    <img style="position: absolute; top: 0; left: 0; border: 0;"
+         src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png" alt="Fork me on GitHub">
+  </a>
+  
+  <h1>Treema</h1>
+
+  <ul class="nav nav-pills navbar navbar-default">
+    <li><a href="index.html">Overview</a></li>
+    <li class="active"><a href="demo.html">Demo</a></li>
+    <li><a href="using.html">Usage</a></li>
+    <li><a href="develop.html">Dev</a></li>
+    <li id="tests-link"><a href="test.html">Run Tests</a></li>
+    <li id="github-link"><a href="https://github.com/sderickson/treema">Treema on Github</a></li>
+  </ul>
+
+  <p>Let's see this library in action.</p>
+  
+  <h3>Basics: A Contact Book</h3>
+  
+  <div id="addresses"></div>
+  
+  <script>
+    var contacts = [
+      { 'street-address': '10 Downing Street', 'country-name': 'UK', 'locality': 'London', 'name': 'Prime Minister' },
+      { 'street-address': '1600 Amphitheatre Pkwy', 'phone-number': '(650) 253-0000', 'name': 'Google'},
+      { 'street-address': '45 Rockefeller Plaza', 'region': 'NY', 'locality': 'New York', 'name': 'Rockefeller Center'},
+    ];
+    
+    var contact_book_schema = {
+      type: 'array',
+      items: {
+        "additionalProperties": false,
+        "type": "object",
+        "displayProperty": 'name',
+        "properties": {
+          "name": { type: "string", maxLength: 20 },
+          "street-address": { title: "Address 1", description: "Don't forget the number.", type: "string" },
+          "locality":{ "type": "string", title: "Locality" },
+          "region": { 'title': 'Region', type: 'string' },
+          "country-name": { "type": "string", title: "Country" },
+          "friend": { "type": "boolean", title: "Friend" },
+          "phone-number": { type: "string", maxLength: 20, minLength:4, title: 'Phone Number' }
+        }
+      }
+    };
+
+    buildTreemaExample($('#addresses'), contact_book_schema, contacts);
+    
+  </script>
+  
+  
+</div>
+
+</body>
+</html>

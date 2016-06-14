@@ -1,0 +1,17 @@
+.gallery {  
+  margin-top : 40px;
+  width : 1602px;
+  height : 900px;
+  margin-top:0px;
+  background-color: #bfbfbf;
+}
+
+.img 
+{
+	margin-left:50px;
+	margin-bottom:  50px;
+	margin-top : 25px;
+width : 300px;
+margin-right :30px;
+}
+
